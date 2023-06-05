@@ -175,6 +175,9 @@ def predict_driving(model, dataloader, args, dset='test'):
 
         if itern % args.print_freq == 0:
             print(f"Predicting driving decision of Batch {itern}/{niters}")
+        del data
+        del pred_speed_logit
+        del pred_dir_logit
 
     with open(os.path.join(args.checkpoint_path, 'results', f'{dset}_driving_prediction.json'), 'w') as f:
         json.dump(dt, f)

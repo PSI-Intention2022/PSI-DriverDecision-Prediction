@@ -84,8 +84,8 @@ if __name__ == '__main__':
         args.database_file = 'driving_database_train.pkl'
         args.driving_loss = ['cross_entropy']
 
-    args.seq_overlap_rate = 0.5 # overlap rate for trian/val set
-    args.test_seq_overlap_rate = 1 # overlap for test set. if == 1, means overlap is one frame, following PIE
+    args.seq_overlap_rate = 0.1  # overlap rate for trian/val set
+    args.test_seq_overlap_rate = 1  # overlap for test set. if == 1, means overlap is one frame, following PIE
     args.observe_length = 15
     if args.task_name == 'ped_intent':
         args.predict_length = 1  # only make one intent prediction
