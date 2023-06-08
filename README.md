@@ -1,10 +1,14 @@
 
-# This folder contains the baseline of pedestrian trajectory prediction based on  PSI dataset.
+# This folder contains the baseline of driving decision making based on the PSI dataset.
 ([**PSI2.0**](https://github.com/PSI-Intention2022/PSI-Dataset) is an extension dataset based on the [**PSI1.0**](http://situated-intent.net/) dataset.)
 
+### :bookmark: News :
+- 20230606: The official [[Homepage](https://psi-intention2022.github.io)], [[GitHub](https://github.com/PSI-Intention2022/PSI-Competition)], and [[CodaLab]() ([Track 1](https://codalab.lisn.upsaclay.fr/competitions/13808#phases))([Track 2](https://codalab.lisn.upsaclay.fr/competitions/13812?secret_key=7a566b48-693d-47cf-9de8-d43e6b6fa512#phases))([Track 3](https://codalab.lisn.upsaclay.fr/competitions/13818?secret_key=bc6903e6-0a62-4df2-bb14-b31ae7b40a63#participate))] of the IEEE ITSS Student Competition are public. 
+
+---
 
 ## 1. PSI dataset Structure
-Please refer to [PSI dataset]() for the details of PSI dataset and data structure.
+Please refer to [PSI dataset](https://github.com/PSI-Intention2022/PSI-Dataset) for the details of PSI dataset and data structure.
 
 ### (1) Driving Decision Annotations
 ```python
