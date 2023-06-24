@@ -36,7 +36,7 @@ def main(args):
     if not os.path.exists(val_gt_file):
         get_test_driving_gt(model, val_loader, args, dset='val')
     predict_driving(model, val_loader, args, dset='val')
-    score = evaluate_driving(val_gt_file, args.checkpoint_path + '/results/val_driving_prediction.json', args)
+    score = evaluate_driving(val_gt_file, args.checkpoint_path + '/results/val_driving_pred.json', args)
     print("Ranking score of val set: ", score)
 
     # ''' 4. Evlaute '''
@@ -45,7 +45,7 @@ def main(args):
     #     get_test_driving_gt(model, test_loader, args, dset='test')
     #
     # predict_driving(model, test_loader, args, dset='test')
-    # score = evaluate_driving(test_gt_file, args.checkpoint_path + '/results/test_driving_prediction.json', args)
+    # score = evaluate_driving(test_gt_file, args.checkpoint_path + '/results/test_driving_pred.json', args)
     # print("Ranking score of test set: ", score)
 
 if __name__ == '__main__':
@@ -109,7 +109,7 @@ if __name__ == '__main__':
         args.freeze_backbone = False
 
     # Train
-    args.epochs = 100
+    args.epochs = 2
     args.batch_size = 64
     if args.task_name == 'ped_traj':
         args.lr = 1e-2

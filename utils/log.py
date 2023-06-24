@@ -112,9 +112,9 @@ class RecordResults():
         # 3. Update training info
         # (3.1) loss log list
         bs = speed_gt.shape[0]
-        self.frames_list.extend(data['frames'].detach().cpu().numpy())  # bs x sq_length(60)
-        assert len(self.frames_list[0]) == self.args.observe_length
-        self.video_list.extend(data['video_id'])  # bs
+        # self.frames_list.extend(data['frames'].detach().cpu().numpy())  # bs x sq_length(60)
+        # assert len(self.frames_list[0]) == self.args.observe_length
+        # self.video_list.extend(data['video_id'])  # bs
         # (3.2) training data info
 
         self.driving_speed_gt.extend(speed_gt)  # bs

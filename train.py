@@ -90,8 +90,8 @@ def train_driving_epoch(epoch, model, optimizer, criterions, epoch_loss, dataloa
                                          pred_speed_logit.detach().cpu().numpy(), pred_dir_logit.detach().cpu().numpy(), loss.item(),
                                             loss_driving_speed.item(), loss_driving_dir.item())
 
-        if itern >= 10:
-            break
+        # if itern >= 10:
+        #     break
 
     epoch_loss['loss_driving'].append(np.mean(batch_losses['loss_driving']))
     epoch_loss['loss_driving_speed'].append(np.mean(batch_losses['loss_driving_speed']))

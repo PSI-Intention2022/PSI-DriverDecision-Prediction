@@ -133,7 +133,9 @@ def predict_traj(model, dataloader, args):
         json.dump(dt, f)
 
 
+@torch.no_grad()
 def validate_driving(epoch, model, dataloader, args, recorder, writer):
+    print(f"Validate ...")
     model.eval()
     niters = len(dataloader)
     for itern, data in enumerate(dataloader):
@@ -146,13 +148,18 @@ def validate_driving(epoch, model, dataloader, args, recorder, writer):
         if itern % args.print_freq == 0:
             print(f"Epoch {epoch}/{args.epochs} | Batch {itern}/{niters}")
 
+        del data
+        del pred_speed_logit
+        del pred_dir_logit
+
     recorder.eval_driving_epoch_calculate(writer)
 
     return recorder
 
 
-
+@torch.no_grad()
 def predict_driving(model, dataloader, args, dset='test'):
+    print(f"Predict and save prediction of {dset} set...")
     model.eval()
     dt = {}
     niters = len(dataloader)
@@ -173,11 +180,13 @@ def predict_driving(model, dataloader, args, dset='test'):
             dt[vid][fid]['speed'] = torch.argmax(pred_speed_logit[i]).item()
             dt[vid][fid]['direction'] = torch.argmax(pred_dir_logit[i]).item()
 
-        if itern % args.print_freq == 0:
+        if itern % args.print_freq == 10:
             print(f"Predicting driving decision of Batch {itern}/{niters}")
         del data
         del pred_speed_logit
         del pred_dir_logit
 
-    with open(os.path.join(args.checkpoint_path, 'results', f'{dset}_driving_prediction.json'), 'w') as f:
+    print("Saving prediction to file...")
+    with open(os.path.join(args.checkpoint_path, 'results', f'{dset}_driving_pred.json'), 'w') as f:
         json.dump(dt, f)
+
