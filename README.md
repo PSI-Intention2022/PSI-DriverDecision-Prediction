@@ -1,5 +1,7 @@
-
 # This folder contains the baseline of driving decision making based on the PSI dataset.
+
+![image](./images/sample.png)
+
 ([**PSI2.0**](https://github.com/PSI-Intention2022/PSI-Dataset) is an extension dataset based on the [**PSI1.0**](http://situated-intent.net/) dataset.)
 
 ### :bookmark: News :
